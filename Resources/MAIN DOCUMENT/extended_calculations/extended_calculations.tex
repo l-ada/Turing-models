@@ -1,0 +1,66 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{subcaption}
+
+\begin{document}
+	We want to compute
+	\begin{equation}\label{chemical-potential}
+		\mu_{u}=\frac{\partial F}{\partial u},
+	\end{equation}
+where 
+\begin{align}
+	F=&u\ln\frac{u}{R}+v\ln\frac{v}{R}+c\ln\left(1-\frac{u+v}{c}\right)\\
+	=&u\ln u-u\ln R+v\ln v-v\ln R+c\ln R - c \ln c
+\end{align}
+We have 
+\begin{align*} 
+	&\frac{\partial}{\partial u}\left(u \ln u\right) = \ln u + 1, \\ 
+	&\frac{\partial}{\partial u}\left(-u \ln R\right) = -\ln R + \frac{u}{R},  \text{ (the mistakes were here)}\\ 
+	&\frac{\partial}{\partial u}\left(v \ln v\right) = 0, \\ 
+	&\frac{\partial}{\partial u}\left(-v \ln R\right) = \frac{v}{R}, \\ &\frac{\partial}{\partial u}\left(c \ln R\right) = -\frac{c}{R}, \\ &\frac{\partial}{\partial u}\left(-c \ln c\right) = 0. 
+\end{align*} 
+So in the end we get
+\begin{equation}
+	\mu_u = \ln u -\ln R = \ln u - \ln (c-u-v),
+	\end{equation}	
+	using 
+	\begin{equation}
+	R = c-u-v.
+	\end{equation}
+
+Now we compute derivative
+We have
+\begin{equation}
+\partial_{x}\mu_{u}=\frac{u^{\prime}}{u}-\frac{R^{\prime}}{R}=\left(\frac{1}{u}+\frac{1}{R}\right)u^{\prime}+\frac{1}{R}v^{\prime}
+\end{equation}
+So we would get 
+\begin{align}
+&D_{uu}=(1+\frac{u}{R})=1+\frac{u}{c-u-v}\\
+&D_{uv}=\frac{u}{R}=\frac{u}{c-u-v}
+\end{align}
+
+So 
+\begin{align}\partial_x( u \partial_x \mu_u) &=u''+ \frac{u'R-R'u}{R^2}(u'+v')+\frac{u}{R}(u''+v'')\\
+&=u''+\frac{u'}{R}(u'+v')+\frac{u}{R^2}(u'+v')^2+\frac{u}{R}(u''+v'')\\&=
+u''-\frac{u(RR''-(R')^2)+R'u'R}{R^2}\\
+&=u'' - \frac{u}{R}R'' + u\frac{(R')^2}{R^2}-\frac{R'u'}{R}
+\end{align}
+Or finally
+\begin{align}
+\partial_x( u \partial_x \mu_u)=&u''+\frac{u'}{(c-u-v)}(u'+v')\\&+\frac{u}{(c-u-v)^2}(u'+v')^2+\frac{u}{(c-u-v)}(u''+v'')
+\end{align}
+
+And from this we get the linearization $u \to u+\delta u$, by also assuming  $u',v',u'',v'' = 0$
+and ignoring higher order terms.
+$$\delta \dot u = \delta u'' + \frac{u}{c-u-v}(\delta u'' + \delta v'') + \text{ reaction kinetics part}$$
+If we introduce the coefficient in free energy we'll get
+$$\delta \dot u = D_1\left(\delta u'' + \frac{u}{c-u-v}(\delta u'' + \delta v'')\right) + \text{ reaction kinetics part}$$
+Or
+$$\delta \dot u = D_1\left(D_{uu}\delta u'' + D_{uv}\delta v'' + \right)$$
+ie.  for $\delta  w=(\delta u, \delta v)$
+$$\delta \dot w = \begin{pmatrix} D_1(1+\frac{u}{c-v-v}) & D_1\frac{u}{c-v-v}\\ D_2\frac{v}{c-u-v} & D_2(1+\frac{v}{c-u-v})\end{pmatrix} \delta w'' + \text{ reaction kinetics part}$$
+So the end result is the same
+	
+\end{document}
