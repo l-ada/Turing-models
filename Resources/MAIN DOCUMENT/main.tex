@@ -1,12 +1,14 @@
-
 \documentclass{article}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{subcaption}
+\usepackage{cleveref}
 
 
+\newcommand{\showeq}[1]{\text{\eqref{#1}}}
+\newcommand{\tr}{\text{tr}}
 \begin{document}
 	\tableofcontents
 	Hello
@@ -16,7 +18,7 @@
 		F=\frac{C_{rest}}{C_{\infty}}\left(u\ln\left(\frac{u}{c_{\infty}-u-v}\right)+v\ln\left(\frac{v}{c_{\infty}-u-v}\right)\right)+c_{\infty}\ln\left(1-\frac{u+v}{c_{\infty}}\right)
 	\end{equation}
 	For the rest of this text I will use $ c $ instead of $ c_{\infty} $. Also I denote
-	\begin{equation}\label{key}
+	\begin{equation}
 		R = c-u-v, A = \frac{C_{\text{rest}}}{c_\infty}
 	\end{equation}
 	From free energy we get the chemical potentials
@@ -78,7 +80,7 @@ u''-\frac{u(RR''-(R')^2)+R'u'R}{R^2}\\
 \end{align}
 Or finally
 \begin{align}
-\partial_x( u \partial_x \mu_u)=&u''+\frac{u'}{(c-u-v)}(u'+v')\\&+\frac{u}{(c-u-v)^2}(u'+v')^2+\frac{u}{(c-u-v)}(u''+v'')
+\partial_x( u \partial_x \mu_u)=&u''+\frac{u'}{(c-u-v)}(u'+v')\\&+\frac{u}{(c-u-v)^2}(u'+v')^2+\frac{u}{(c-u-v)}(u''+v'')\label{eq:laplacian}
 \end{align}
 
 And from this we get the linearization $u \to u+\delta u$, by also assuming  $u',v',u'',v'' = 0$
@@ -120,8 +122,20 @@ with the solutions
 \begin{equation}
 \sigma=\frac12\left(\text{tr}A_q \pm \sqrt{(\text{tr}A_q)^2-4\det A_q}\right)
 \end{equation}
+As before the condition for stability is
+\[\tr A_q < 0, \det A_q > 0.\]
+
 
 	\section{Collected equations}
+	\begin{equation}
+	\det A_{q}=\det A-q^2\left(d_{uu}a_{vv}+d_{vv}a_{uu}-a_{vu}d_{uv}-d_{vu}a_{uv}\right)+q^4\left(d_{uu}d_{vv}-d_{vu}d_{vu}\right) ,
+	\end{equation}
 	
-	Equation for 
+	\begin{equation}
+	\tr A_q = \tr A - q^2 (D_1 (1+\frac uR) + D_2 (1+\frac vR)
+	\end{equation}
+	
+	\begin{equation}
+	C = D_1D_2 \frac{c}{R}
+	\end{equation}
 \end{document}
