@@ -156,10 +156,53 @@ In the case of Brusselator we have
 A&=\begin{pmatrix}b-1& a^2 \\ -b &-a^2\end{pmatrix}\\
 \tr A &= b-1-a^2\\
 \det A&= a^2\\
-u&=a,v=\frac{b}{a} (\text{fixed point})
+u&=a,v=\frac{b}{a} (\text{fixed point})\\
+f_u &= a-(b+1)u+u^2v, f_v = bu-u^2v
 \end{align}
 
+\begin{equation}
+B=\frac{D_1(2ab-a^2c)+D_2(a-c+bc-2ab)}{R}
+\end{equation} or in the case of $D_1 = D_2$
+\begin{equation}
+B = \frac{a-c+bc-a^2c}{R},
+\end{equation}
+where $R = c-a-\frac ba$.
+Thus
+\begin{equation}
+\det A_q = a^2 - q^2\frac{D_1(2ab-a^2c)+D_2(a-c+bc-2ab)}{c-a-\frac{b}{a}}+q^4\frac{c}{c-a-\frac{b}{a}}
+\end{equation}
+The trace is equal to
+\begin{equation}
+\tr A_q = b-1-a^2 - q^2 (\frac{D_1(c-\frac{b}{a})+D_2(c-a)}{c-a-\frac{b}{a}})
+\end{equation}
+
+\subsection{Neutral curves}
+To find the neutral curve we set 
+$\det A_q = 0$. From this we solve for $b$. 
+We get
+\begin{equation}
+b(q)=\frac{D_1 D_2 c q^4 + D_1 a^2 c q^2 - D_2 a q^2 + D_2 c q^2 - a^3 + a^2 c}{2 D_1 a q^2 - 2 D_2 a q^2 + D_2 c q^2 + a}
+\end{equation}
+In the case of $D_1=D_2$ it simplifies to
+\begin{equation}
+b=\frac{D^2 c q^4 +Dq^2(  a^2 c  -  a  +  c ) - a^3 + a^2 c}{D c q^2 + a} 
+\end{equation}
+It's important to remember that $R>0$ i.e $c-a-\frac{b}{a}>0$, which gives us a bound on $b$.\\
+The neutral curve  for trace is more complicated. 
+
 \section{Collected equations}
+\begin{align}
+A&=\begin{pmatrix}b-1& a^2 \\ -b &-a^2\end{pmatrix}\\
+\tr A &= b-1-a^2\\
+\det A&= a^2\\
+u&=a,v=\frac{b}{a} (\text{fixed point})\\
+f_u &= a-(b+1)u+u^2v, f_v = bu-u^2v
+\end{align}
+
+\begin{equation}
+\bar{D} = \begin{pmatrix} D_1(1+\frac{u}{c-u-v}) & D_1\frac{u}{c-u-v}\\ D_2\frac{v}{c-u-v} & D_2(1+\frac{v}{c-u-v})\end{pmatrix} 
+\end{equation}
+
 	\begin{equation}
 	\det A_{q}=\det A-q^2\left(d_{uu}a_{vv}+d_{vv}a_{uu}-a_{vu}d_{uv}-d_{vu}a_{uv}\right)+q^4 \det \bar{D},
 	\end{equation}
