@@ -91,7 +91,7 @@ $$\delta \dot u = D_1\left(\delta u'' + \frac{u}{c-u-v}(\delta u'' + \delta v'')
 Or
 $$\delta \dot u = \left(D_{uu}\delta u'' + D_{uv}\delta v'' \right)$$
 for $\delta  w=(\delta u, \delta v)$
-$$\delta \dot w = \begin{pmatrix} D_1(1+\frac{u}{c-v-v}) & D_1\frac{u}{c-v-v}\\ D_2\frac{v}{c-u-v} & D_2(1+\frac{v}{c-u-v})\end{pmatrix} \delta w'' + \text{ reaction kinetics part}$$
+$$\delta \dot w = \begin{pmatrix} D_1(1+\frac{u}{c-u-v}) & D_1\frac{u}{c-u-v}\\ D_2\frac{v}{c-u-v} & D_2(1+\frac{v}{c-u-v})\end{pmatrix} \delta w'' + \text{ reaction kinetics part}$$
 So the end result is the same
 		
 \subsection{Linearization}
@@ -101,7 +101,7 @@ The linearized equation looks like
 \end{equation}
 where 
 \begin{equation}
-\bar{D} = \begin{pmatrix} D_1(1+\frac{u}{c-v-v}) & D_1\frac{u}{c-v-v}\\ D_2\frac{v}{c-u-v} & D_2(1+\frac{v}{c-u-v})\end{pmatrix} 
+\bar{D} = \begin{pmatrix} D_1(1+\frac{u}{c-u-v}) & D_1\frac{u}{c-u-v}\\ D_2\frac{v}{c-u-v} & D_2(1+\frac{v}{c-u-v})\end{pmatrix} 
 \end{equation}
 As usual taking $\delta w = v_q \exp{iqx+\sigma t}$ leads to the eigenvalue problem
 \begin{equation}
@@ -126,9 +126,42 @@ As before the condition for stability is
 \[\tr A_q < 0, \det A_q > 0.\]
 
 
-	\section{Collected equations}
+\subsection{The determinant}
+We have the following expresssion for the determinant
+\begin{equation}
+\det A_q = \det A - q^2(d_{uu}a_{vv}+d_{vv}a_{uu}-d_{uv}a_{vu}-d_{vu}a_{uv})+q^4 \det \bar{D}.
+\end{equation}
+We'll write this as
+\begin{equation}
+\det A_q = \det A - Bq^2 + C q^4,
+\end{equation}
+We can see that
+\begin{equation}
+C = D_1D_2\frac{c}{c-u-v},
+\end{equation}
+or
+\begin{equation}
+\det A_q = \det A - q^2(D_{2}a_{uu}+D_1a_{vv} + B') + q^4 (D_1 D_2 + C'),
+\end{equation}
+where $B',C'$ are the terms occuring solely due to the interactions.
+We find that the minimum occurs at $q_{crit}^2 = \frac {B}{2C}$ and
+\begin{equation}
+\det A_{q_{crit}} = \det A - \frac{B^2}{4C}
+\end{equation}
+
+
+\subsection{The brusselator}
+In the case of Brusselator we have
+\begin{align}
+A&=\begin{pmatrix}b-1& a^2 \\ -b &-a^2\end{pmatrix}\\
+\tr A &= b-1-a^2\\
+\det A&= a^2\\
+u&=a,v=\frac{b}{a} (\text{fixed point})
+\end{align}
+
+\section{Collected equations}
 	\begin{equation}
-	\det A_{q}=\det A-q^2\left(d_{uu}a_{vv}+d_{vv}a_{uu}-a_{vu}d_{uv}-d_{vu}a_{uv}\right)+q^4\left(d_{uu}d_{vv}-d_{vu}d_{vu}\right) ,
+	\det A_{q}=\det A-q^2\left(d_{uu}a_{vv}+d_{vv}a_{uu}-a_{vu}d_{uv}-d_{vu}a_{uv}\right)+q^4 \det \bar{D},
 	\end{equation}
 	
 	\begin{equation}
@@ -138,4 +171,5 @@ As before the condition for stability is
 	\begin{equation}
 	C = D_1D_2 \frac{c}{R}
 	\end{equation}
+	
 \end{document}
