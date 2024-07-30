@@ -148,7 +148,7 @@ We find that the minimum occurs at $q_{crit}^2 = \frac {B}{2C}$ and
 \begin{equation}
 \det A_{q_{crit}} = \det A - \frac{B^2}{4C}
 \end{equation}
-
+Since $C>0,$ it follows that $B>0$ as well.
 
 \subsection{The brusselator}
 In the case of Brusselator we have
@@ -188,10 +188,21 @@ In the case of $D_1=D_2$ it simplifies to
 b=\frac{D^2 c q^4 +Dq^2(  a^2 c  -  a  +  c ) - a^3 + a^2 c}{D c q^2 + a} 
 \end{equation}
 It's important to remember that $R>0$ i.e $c-a-\frac{b}{a}>0$, which gives us a bound on $b$.\\
+One can also write it as
+\begin{equation}
+b(q) = \frac{L}{c}+ (a^2-\frac{3a}{c}+1)+\frac{a(1-ac)(2a-c)}{cL},
+\end{equation}
+where $L= Dcq^2 + a$. The minimum occurs at $L^2 = a(1-ac)(2a-c)$ and is equal to 
+\begin{equation}
+b(q_{crit}) = 1+a^2 + \frac{2\sqrt{a(1-ac)(2a-c)}-3a}{c}.
+\end{equation}
+For it to exist we must have $L^2>0$, which means that $a \in (\frac{1}{c}, \frac{c}{2})$.
+
 The neutral curve  for trace is more complicated. 
 \begin{equation}
 0=-b^2 + b \left(a c+D_1 q^2+1\right)+a^4-a^3 c+a^2 \left(D_2 q^2+1\right)-a c D_1 q^2-a c D_2 q^2-a c
 \end{equation}
+It seems like the minimum is still at $q=0$, and the curve is closed and resembles ellipse.
 
 \section{Results}
 \subsection{Neutral curve}
@@ -220,9 +231,11 @@ f_u &= a-(b+1)u+u^2v, f_v = bu-u^2v
 	\begin{equation}
 	\det A_{q}=\det A-q^2\left(d_{uu}a_{vv}+d_{vv}a_{uu}-a_{vu}d_{uv}-d_{vu}a_{uv}\right)+q^4 \det \bar{D},
 	\end{equation}
-	
 	\begin{equation}
-	\tr A_q = \tr A - q^2 (D_1 (1+\frac uR) + D_2 (1+\frac vR)
+	\det A_q = a^2 - q^2\frac{D_1(2ab-a^2c)+D_2(a-c+bc-2ab)}{c-a-\frac{b}{a}}+q^4\frac{c}{c-a-\frac{b}{a}}
+	\end{equation}
+	\begin{equation}
+	\tr A_q = \tr A - q^2 (D_1 (1+\frac uR) + D_2 (1+\frac vR)=b-1-a^2 - q^2 (\frac{D_1(c-\frac{b}{a})+D_2(c-a)}{c-a-\frac{b}{a}})
 	\end{equation}
 	
 	\begin{equation}
