@@ -192,11 +192,28 @@ One can also write it as
 \begin{equation}
 b(q) = \frac{L}{c}+ (a^2-\frac{3a}{c}+1)+\frac{a(1-ac)(2a-c)}{cL},
 \end{equation}
-where $L= Dcq^2 + a$. The minimum occurs at $L^2 = a(1-ac)(2a-c)$ and is equal to 
+where $L= Dcq^2 + a$. The minimum occurs at $L^2 = a(1-ac)(2a-c) = a^2c^2+2a^2-ac-2a^3c$ and is equal to 
 \begin{equation}
 b(q_{crit}) = 1+a^2 + \frac{2\sqrt{a(1-ac)(2a-c)}-3a}{c}.
 \end{equation}
-For a minimum to exist we must have $L^2>0$, which means that $a \in (\frac{1}{c}, \frac{c}{2})$. Otherwise the only minimum is at $q=0$ and is equal to $ca-a^2$. That means that $c$ can't be too small if we want Turing patterns, i.e if $a>\frac{c}{2}$, then we only get minimum at $q=0$ This means that $\det A_q$ is always positive for the $b's$ we're allowed to use.
+For a minimum to exist we must have $L^2>0$, which means that $a \in (\frac{1}{c}, \frac{c}{2})$. Otherwise the only minimum is at $q=0$ and is equal to $ca-a^2$. That means that $c$ can't be too small if we want Turing patterns, i.e if $a>\frac{c}{2}$, then we only get minimum at $q=0$ This means that $\det A_q$ is always positive for the $b's$ we're allowed to use. We also must have $\sqrt{a(1-ac)(2a-c)}-a\geq 0.$, which is the condition $L>0$.1
+
+\subsubsection{Different diffusion coefficients}
+For different diffusion coefficient we can repeat the same trick, but the expressions are much more involved.
+\begin{equation}
+b(q) = B_0 L + B_1  + \frac{B_2}{L},
+\end{equation} where
+\begin{align}
+L&=2 a D_1 q^2-2 a D_2 q^2+c D_2 q^2+a\\
+B_0&=\frac{c D_1 D_2}{(2 a (D_1-D_2)+c D_2)^2}\\
+B_1&=\frac{2 a^3 c D_1^2-2 a^3 c D_1 D_2+a^2 c^2 D_1 D_2-2 a^2 D_1 D_2+2 a^2 D_2^2-3 a c D_2^2+c^2 D_2^2}{(2 a D_1-2 a D_2+c D_2)^2}\\
+B_2&=-\frac{a (2 a-c) (a D_1-a D_2+c D_2) \left(2 a^2 D_1-2 a^2 D_2+a c D_2-D_2\right)}{(2 a D_1-2 a D_2+c D_2)^2}
+\end{align}
+The coefficients were derived using Mathematica.
+As before we can find the minimum at 
+\begin{equation}
+L^2 = \frac{B_2}{B_0}
+\end{equation}
 \subsubsection{Monotonicity}
 Let's check how changing the parameters shifts the neutral curve.
 Let's start with the minimum, ie. $b_{crit}$.
@@ -213,10 +230,21 @@ or for $D_1=D_2$
 \begin{equation}
 0 = -b^2 + b \left(a c+D q^2+1\right) + a^4-a^3c+a^2-ac + Dq^2(a^2-2ac)
 \end{equation}
-It seems like the minimum is still at $q=0$, and the curve is closed and resembles ellipse.
-Similar thing seems to happen when $a>\frac{c}{2}$. The curve suddenly flips around the maximum possible $b$ and the minimum occurs at $q=0$ and is equal to $ca-a^2$, which means that for these parameters the system is stable.
+It seems like the minimum is still at $q=0$, and the curve is closed and resembles ellipse. 
+Actually. We know that $b=1+a^2$ works and it seems like $b = ca-a^2$ also works.
+Similar thing seems to happen when $a\approx\frac{c}{2}$. The curve suddenly flips around the maximum possible $b$ and the minimum occurs at $q=0$ and is equal to $ca-a^2$, which means that for these parameters the system is stable.
+But it's not exactly $\frac{c}{2}$
+As this is a quadratic equation in $b$ we can solve it explicitly, which will give us a square root term.
+We have two solutions for the square root to be equal to zero.
+\begin{equation}
+a_{crit} = \frac{1}{4}(c\pm\sqrt{c^2-8})
+\end{equation}
+This is kind of weird since it implies $c^2$ can't be smaller than $8$.
+So for $a<a_{\text{crit\_minus}}$ or $a> a_{\text{crit\_plus}}$ we have only $\tr A_q <0$ for any permissible $b$.
 
 \section{Results}
+If $2a>c$, then $\det $ is always positive. Can I manipulate 
+
 \subsection{Neutral curve}
 Here are some comparisons between neutral curves of det, with and without interactions
 \begin{figure}[H]
