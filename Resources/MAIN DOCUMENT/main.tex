@@ -4,7 +4,7 @@
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{subcaption}
-\usepackage{cleveref}
+
 
 
 \newcommand{\showeq}[1]{\text{\eqref{#1}}}
@@ -175,7 +175,15 @@ The trace is equal to
 \begin{equation}
 \tr A_q = b-1-a^2 - q^2 (\frac{D_1(c-\frac{b}{a})+D_2(c-a)}{c-a-\frac{b}{a}})
 \end{equation}
+We also have 
 
+\begin{equation}
+B = \frac{a^3 D_1-\frac{b^2 D_2}{a}-a b D_1+a b D_2+\frac{b D_2}{a}}{c-a-\frac{b}{a}}+a^2 D_1-b D_2+D_2
+\end{equation}
+and 
+\begin{equation}
+q_{c}^2 = -\frac{-a^2 c D_1+a (2 b (D_1-D_2)+D_2)+(b-1) c D_2}{2 c D_1 D_2}
+\end{equation}
 \subsection{Determinant neutral curve}
 To find the neutral curve we set 
 $\det A_q = 0$. From this we solve for $b$. 
@@ -213,6 +221,17 @@ The coefficients were derived using Mathematica.
 As before we can find the minimum at 
 \begin{equation}
 L^2 = \frac{B_2}{B_0}
+\end{equation}
+\subsubsection{Comparison of with the case of no interactions}
+For the no interaction case we have
+\begin{equation}
+b_{cN} = (1+a\sqrt{\frac{D_1}{D_2}})^2,
+\end{equation} which reduces to
+\begin{equation}
+b_{cN} = (1+a)^2,
+\end{equation} which is derived from
+\begin{equation}
+b(q) = \frac{a^2}{D_2 q^2}+ \frac{D_2 + D_1 a^2}{D_2}+ D_1 q^2
 \end{equation}
 \subsubsection{Monotonicity}
 Let's check how changing the parameters shifts the neutral curve.
@@ -252,9 +271,52 @@ Here are some comparisons between neutral curves of det, with and without intera
 
 \end{figure}
 \begin{figure}[H]
-\includegraphics[width=\textwidth]{images/plot_20240719_112606.png} ng
+\includegraphics[width=\textwidth]{images/plot_20240719_112606.png} 
 
 \end{figure}
+
+\subsection*{Comparison of critical parameter with and without interactions}
+
+\begin{figure}[H]
+\includegraphics[width=\textwidth]{images/I1a} 
+
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \begin{tabular}{ccc}
+        \subcaptionbox{Caption 1a}[5cm]{\includegraphics[width=5cm]{images/I1a}} &
+        \subcaptionbox{Caption 1b}[5cm]{\includegraphics[width=5cm]{images/I1b}} &
+        \subcaptionbox{Caption 1c}[5cm]{\includegraphics[width=5cm]{images/I1c}} \\
+        
+        \subcaptionbox{Caption 2a}[5cm]{\includegraphics[width=5cm]{images/I2a}} &
+        \subcaptionbox{Caption 2b}[5cm]{\includegraphics[width=5cm]{images/I2b}} &
+        \subcaptionbox{Caption 2c}[5cm]{\includegraphics[width=5cm]{images/I2c}} \\
+        
+        \subcaptionbox{Caption 3a}[5cm]{\includegraphics[width=5cm]{images/I3a}} &
+        \subcaptionbox{Caption 3b}[5cm]{\includegraphics[width=5cm]{images/I3b}} &
+        \subcaptionbox{Caption 3c}[5cm]{\includegraphics[width=5cm]{images/I3c}} \\
+    \end{tabular}
+    \caption{3x3 grid of subfigures}
+    \label{fig:3x3grid}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \begin{tabular}{cc}
+        \subcaptionbox{Caption 1a}[7cm]{\includegraphics[width=7cm]{images/I1a}} &
+        \subcaptionbox{Caption 1b}[7cm]{\includegraphics[width=7cm]{images/I1b}} \\        
+        \subcaptionbox{Caption 2a}[7cm]{\includegraphics[width=7cm]{images/I2a}} &
+        \subcaptionbox{Caption 2b}[7cm]{\includegraphics[width=7cm]{images/I2b}} \\
+        \\
+
+    \end{tabular}
+    \caption{}
+    \label{fig:3x3grid}
+\end{figure}
+
 \section{Collected equations}
 \begin{align}
 A&=\begin{pmatrix}b-1& a^2 \\ -b &-a^2\end{pmatrix}\\
